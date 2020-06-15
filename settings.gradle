@@ -1,0 +1,2 @@
+rootProject.name='Bloco De Notas'
+include ':app'
