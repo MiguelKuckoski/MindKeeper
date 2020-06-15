@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blocodenotas.model.Anotacao
 import com.blocodenotas.reciclerView.AdapterNotas
 import com.example.blocodenotas.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         listRecycler.layoutManager = layoutManager
         val adapter = AdapterNotas(this, list)
         listRecycler.adapter = adapter
-        val button : Button = findViewById(R.id.recyclerViewAnotacoes)
+        val button : FloatingActionButton = findViewById(R.id.floatingActionButton2)
 
         button.setOnClickListener {
             setContentView(R.layout.activity_anotacao)
