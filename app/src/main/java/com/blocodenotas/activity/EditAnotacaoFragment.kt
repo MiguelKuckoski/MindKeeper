@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class EditAnotacaoFragment : Fragment() {
 
 //    override fun onCreateView(
 //            inflater: LayoutInflater, container: ViewGroup?,
