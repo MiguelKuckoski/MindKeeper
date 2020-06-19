@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Bloco De Notas</string>
+    <string name="app_name">MindKeeper</string>
     <string name="action_settings">Settings</string>
-    <string name="nova_anotacao">Nota</string>
+    <string name="nova_anotacao">Titulo da Nota</string>
     <string name="compartilhar">compartilhar</string>
     <string name="salvar">salvar</string>
+    <string name="Notas">Notas</string>
 
 
     <!-- Strings used for fragments for navigation -->

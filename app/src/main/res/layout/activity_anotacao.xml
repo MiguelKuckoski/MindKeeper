@@ -8,20 +8,21 @@
 
     <EditText
         android:id="@+id/titulo"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="696dp"
-        android:text="@string/nova_anotacao"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/shareButton"
+        android:layout_width="341dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
+        android:hint="Titulo da Nota"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <ImageButton
         android:id="@+id/shareButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="shareButton"
         app:layout_constraintEnd_toStartOf="@+id/saveButton"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,6 +32,7 @@
         android:id="@+id/saveButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,26 +40,52 @@
 
     <EditText
         android:id="@+id/textBody"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:layout_width="334dp"
+        android:layout_height="433dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
         android:color="#FFEB3B"
-        />
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Anotação"
+        android:inputType="textShortMessage|textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="2dp"
+        android:layout_marginTop="76dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Notas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/Notas"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chevron_left_black_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
