@@ -10,10 +10,10 @@ import com.example.blocodenotas.R
 import kotlinx.android.synthetic.main.anotacao_view.view.*
 
 class AdapterNotas(
-    private val context: Context,
-    private val list: List<Anotacao>
-
+    private val context: Context
 ) : RecyclerView.Adapter<AdapterNotas.ViewHolder>() {
+
+    private var anotacoesList = emptyList<Anotacao>()
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(
@@ -23,11 +23,11 @@ class AdapterNotas(
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return anotacoesList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = list[position]
+        val item = anotacoesList[position]
         holder.titulo.text = item.titulo
         holder.textBody.setText(item.conteudo)
     }
@@ -36,5 +36,10 @@ class AdapterNotas(
         RecyclerView.ViewHolder(itemView) {
         val titulo = itemView.list_titulo
         val textBody = itemView.textbody
+    }
+
+    internal fun setAnotacoes(anotacoes: List<Anotacao>) {
+        this.anotacoesList = anotacoes
+        notifyDataSetChanged()
     }
 }

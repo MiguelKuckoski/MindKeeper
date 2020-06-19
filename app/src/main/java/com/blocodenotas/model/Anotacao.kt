@@ -1,7 +1,12 @@
 package com.blocodenotas.model
 
-import java.util.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.io.Serializable
 
-class Anotacao(val id: Int, val titulo: String, val conteudo: String, val dataModificacao: Date) {
+@Entity
+class Anotacao(val titulo: String, val conteudo: String, val dataModificacao: Long) : Serializable {
+
+    @PrimaryKey(autoGenerate = true) var id: Int? = null
 
 }
