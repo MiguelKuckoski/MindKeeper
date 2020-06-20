@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -29,12 +30,15 @@ class MainActivity : AppCompatActivity() {
             anotacoes?.let { adapter.setAnotacoes(it) }
         })
 
-        val button : FloatingActionButton = findViewById(R.id.floatingActionButton2)
+        val adicionar : FloatingActionButton = findViewById(R.id.floatingActionButton2)
 
-        button.setOnClickListener {
+        adicionar.setOnClickListener {
             val intent = Intent(this, EditAnotacaoActivity::class.java)
             startActivityForResult(intent, newActivityRequestCode)
         }
+
+        val search : SearchView = findViewById(R.id.searchButton)
+
 
     }
 

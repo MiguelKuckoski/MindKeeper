@@ -2,14 +2,17 @@ package com.blocodenotas.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blocodenotas.model.Anotacao
 import com.example.blocodenotas.R
 import java.util.*
+
 
 class EditAnotacaoActivity : AppCompatActivity()  {
 
@@ -43,12 +46,33 @@ class EditAnotacaoActivity : AppCompatActivity()  {
         returnButton.setOnClickListener {
             this.onBackPressed()
         }
+
+        val sharebutton : ImageButton = findViewById(R.id.shareButton)
+        sharebutton.setOnClickListener {
+            shareItem()
+        }
+    }
+
+    private fun shareItem() {
+        val pm = packageManager
+        try {
+            val waIntent = Intent(Intent.ACTION_SEND)
+            waIntent.type = "text/plain"
+            val text = titulo.text.toString() + "\n " + textbody.text.toString()
+            val info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA)
+            waIntent.setPackage("com.whatsapp")
+            waIntent.putExtra(Intent.EXTRA_TEXT, text)
+            startActivity(Intent.createChooser(waIntent, "Share with"))
+        } catch (e: PackageManager.NameNotFoundException) {
+            Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     fun salvarAnotacao() {
         val anotacao = Anotacao(titulo = titulo.text.toString(), conteudo = textbody.text.toString(), dataModificacao = Calendar.getInstance().getTime().time)
 
-        if(idNota.text != null) {
+        if(idNota.text != null && !idNota.text.isEmpty()) {
             anotacao.id = idNota.text.toString().toInt()
         }
 
