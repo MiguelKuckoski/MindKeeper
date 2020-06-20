@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.blocodenotas.adapter.AdapterNotas
+import com.blocodenotas.adapter.AnotacaoViewModel
 import com.blocodenotas.model.Anotacao
-import com.blocodenotas.model.AnotacaoViewModel
 import com.example.blocodenotas.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -37,8 +37,17 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, newActivityRequestCode)
         }
 
-        val search : SearchView = findViewById(R.id.searchButton)
+        val searchView : SearchView = findViewById(R.id.searchButton)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
 
+            override fun onQueryTextChange(newText: String): Boolean {
+                anotacaoViewModel.searchNameChanged(newText)
+                return true
+            }
+        })
 
     }
 

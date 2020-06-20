@@ -16,4 +16,7 @@ interface AnotacaoDao {
     @Delete
     fun delete(anotacao : Anotacao)
 
+    @Query("SELECT * FROM ANOTACAO where ANOTACAO.titulo LIKE :name or LOWER(ANOTACAO.titulo) like LOWER(:name)")
+    fun allAnotacoesByName(name: String): LiveData<List<Anotacao>>
+
 }
