@@ -10,4 +10,8 @@ class AnotacaoRepository(private val anotacaoDao: AnotacaoDao) {
     suspend fun insert(anotacao: Anotacao) {
         anotacaoDao.insert(anotacao)
     }
+
+    suspend fun delete(anotacao: Anotacao) {
+        anotacaoDao.delete(anotacao)
+    }
 }
