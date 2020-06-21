@@ -27,8 +27,6 @@ class AnotacaoViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-
-
     fun insert(anotacao: Anotacao) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(anotacao)
     }

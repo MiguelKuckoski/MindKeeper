@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val adapter =initReciclerView()
+        val adapter =initListView()
 
         anotacaoViewModel = ViewModelProvider(this).get(AnotacaoViewModel::class.java)
         anotacaoViewModel.allAnotacoes.observe(this, Observer { anotacoes ->
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initReciclerView(): AdapterNotas {
+    private fun initListView(): AdapterNotas {
         val listView : ListView = findViewById(R.id.listViewAnotacoes)
         val adapter = AdapterNotas(this)
         listView.adapter = adapter

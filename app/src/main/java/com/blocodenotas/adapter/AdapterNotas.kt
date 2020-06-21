@@ -11,18 +11,14 @@ import com.example.blocodenotas.R
 import kotlinx.android.synthetic.main.anotacao_view.view.*
 
 
-class AdapterNotas(
-    private val context: Context
-) : BaseAdapter() {
+class AdapterNotas(private val context: Context) : BaseAdapter() {
 
     private var anotacoesList = emptyList<Anotacao>()
-    private var mInflator: LayoutInflater = LayoutInflater.from(context)
 
     internal fun setAnotacoes(anotacoes: List<Anotacao>) {
         this.anotacoesList = anotacoes
         notifyDataSetChanged()
     }
-
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View = View.inflate(context, R.layout.anotacao_view,null)
